@@ -3,63 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pashu Weight Calculator</title>
+<title>PASHU CALCULATOR</title>
 <style>
-body{font-family:sans-serif;background:#f3f1e7;margin:0;padding:15px}
-h1{text-align:center;color:#166534;margin:0}
-.lang{display:flex;gap:8px;justify-content:center;margin:10px 0}
-.lang button{width:auto;padding:8px 14px;border-radius:8px;border:1px solid #ccc;background:white}
+body{font-family:system-ui;background:#f3f1e7;margin:0;padding:12px}
+.header{text-align:center}
+h1{margin:0;color:#166534;font-size:26px}
+.sub{font-size:13px;color:#666;letter-spacing:1px;margin-top:2px}
+.lang{display:flex;gap:8px;justify-content:center;margin:12px 0}
+.lang button{padding:7px 14px;border-radius:20px;border:1px solid #ccc;background:white}
 .lang button.active{background:#16a34a;color:white}
-.card{background:white;padding:20px;border-radius:16px;max-width:420px;margin:auto;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-.top-img{width:100%;border-radius:12px;margin-bottom:12px;border:1px solid #ddd}
-label{font-weight:bold;display:block;margin-top:12px}
-input{width:100%;padding:13px;margin-top:5px;border-radius:10px;border:1px solid #ccc;font-size:16px;box-sizing:border-box}
-button.main{width:100%;padding:14px;background:#16a34a;color:white;border:none;border-radius:10px;font-size:18px;font-weight:bold;margin-top:15px}
-.result{background:#dcfce7;padding:16px;border-radius:10px;margin-top:15px;text-align:center;font-weight:bold;display:none}
-.img-info{background:#fef9c3;padding:10px;border-radius:8px;font-size:13px;margin-top:10px}
+.card{background:white;max-width:430px;margin:auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.12);padding-bottom:20px}
+.card img{width:100%;display:block}
+label{font-weight:bold;display:block;margin:16px 16px 0 16px;font-size:16px}
+input{width:calc(100% - 32px);margin:8px 16px 0 16px;padding:14px;border-radius:12px;border:1px solid #bbb;font-size:18px;box-sizing:border-box}
+button.main{width:calc(100% - 32px);margin:18px 16px 0 16px;padding:15px;background:#16a34a;color:white;border:none;border-radius:12px;font-size:19px;font-weight:bold}
+.result{margin:14px 16px 0 16px;background:#16a34a;color:white;padding:14px;border-radius:10px;text-align:center;font-weight:bold;display:none;font-size:17px}
 </style>
 </head>
 <body>
-<h1>🐄 PASHU</h1>
+<div class="header">
+<h1>🐄 PASHU CALCULATOR</h1>
+<div class="sub">PASHU WEIGHT CALCULATOR</div>
 <div class="lang">
 <button id="b-bn" class="active" onclick="setLang('bn')">বাংলা</button>
 <button id="b-en" onclick="setLang('en')">English</button>
 <button id="b-hi" onclick="setLang('hi')">हिन्दी</button>
 </div>
+</div>
 
 <div class="card">
-<!-- ছবি সবার উপরে -->
-<img src="IMG_20261006_235816.jpg" class="top-img">
+<img src="IMG_20261006_235816.jpg">
 
-<div id="t-desc" style="text-align:center;color:#555"></div>
-
-<label id="l-len"></label>
+<label id="l-len">দৈর্ঘ্য (L) - ইঞ্চিতে</label>
 <input id="len" type="number" placeholder="50">
-<div id="d-len" style="font-size:12px;color:#666"></div>
 
-<label id="l-girth"></label>
+<label id="l-girth">বুকের বেড় (G) - ইঞ্চিতে</label>
 <input id="girth" type="number" placeholder="60">
-<div id="d-girth" style="font-size:12px;color:#666"></div>
 
-<div class="img-info"><span id="info-text"></span></div>
-
-<button class="main" onclick="calc()" id="btn"></button>
-
+<button class="main" onclick="calc()" id="btn">ওজন হিসাব করুন</button>
 <div id="res" class="result"></div>
-<div id="formula" style="text-align:center;font-size:13px;color:#666;margin-top:8px"></div>
 </div>
 
 <script>
 let lang='bn';
 const t={
-bn:{desc:"ফিতা দিয়ে মেপে গরু, ছাগল, মহিষের ওজন মাপুন",l1:"দৈর্ঘ্য (L) - ইঞ্চিতে",d1:"সামনের পা থেকে পিছনের পা পর্যন্ত, ছবির মত",l2:"বুকের বেড় (G) - ইঞ্চিতে",d2:"বুকের চারপাশে ফিতা ঘুরিয়ে মাপুন",info:"👉 দৈর্ঘ্য: কাঁধ থেকে পাছা পর্যন্ত<br>👉 বেড়: বুকের চারপাশে",btn:"ওজন হিসাব করুন",live:"জীবিত ওজন",meat:"মাংসের ওজন (55%)",formula:"ফর্মুলা: (L × G × G) / 660 = কেজি"},
-en:{desc:"Measure animal weight with tape",l1:"Length (L) - in inch",d1:"From shoulder to pin bone, as in image",l2:"Chest Girth (G) - in inch",d2:"Measure around chest",info:"👉 Length: Shoulder to backside<br>👉 Girth: Around chest",btn:"Calculate Weight",live:"Live Weight",meat:"Meat Weight (55%)",formula:"Formula: (L × G × G) / 660 = KG"},
-hi:{desc:"टेप से पशु का वजन नापें",l1:"लंबाई (L) - इंच में",d1:"कंधे से पिछले पैर तक",l2:"छाती की गोलाई (G) - इंच में",d2:"छाती के चारों ओर",info:"👉 लंबाई: कंधे से पीछे तक<br>👉 गोलाई: छाती के चारों ओर",btn:"वजन निकालें",live:"जीवित वजन",meat:"मांस वजन (55%)",formula:"फॉर्मूला: (L × G × G) / 660 = KG"}
+bn:{len:"দৈর্ঘ্য (L) - ইঞ্চিতে",girth:"বুকের বেড় (G) - ইঞ্চিতে",btn:"ওজন হিসাব করুন",live:"জীবিত ওজন",meat:"মাংস (55%)"},
+en:{len:"Length (L) - inch",girth:"Chest Girth (G) - inch",btn:"Calculate Weight",live:"Live Weight",meat:"Meat (55%)"},
+hi:{len:"लंबाई (L) - इंच में",girth:"छाती की गोलाई (G) - इंच में",btn:"वजन निकालें",live:"वजन",meat:"मांस (55%)"}
 };
-function setLang(l){lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));document.getElementById('b-'+l).classList.add('active');apply()}
-function apply(){document.getElementById('t-desc').innerText=t[lang].desc;document.getElementById('l-len').innerText=t[lang].l1;document.getElementById('d-len').innerText=t[lang].d1;document.getElementById('l-girth').innerText=t[lang].l2;document.getElementById('d-girth').innerText=t[lang].d2;document.getElementById('info-text').innerHTML=t[lang].info;document.getElementById('btn').innerText=t[lang].btn;}
-function calc(){let L=parseFloat(document.getElementById('len').value);let G=parseFloat(document.getElementById('girth').value);if(!L||!G){alert('মান দিন');return;}let w=(L*G*G)/660;let r=document.getElementById('res');r.style.display='block';r.innerHTML=t[lang].live+': '+w.toFixed(2)+' KG<br>'+t[lang].meat+': '+(w*0.55).toFixed(2)+' KG';document.getElementById('formula').innerText=t[lang].formula;}
-apply();
+function setLang(l){lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));document.getElementById('b-'+l).classList.add('active');document.getElementById('l-len').innerText=t[lang].len;document.getElementById('l-girth').innerText=t[lang].girth;document.getElementById('btn').innerText=t[lang].btn;}
+function calc(){let L=parseFloat(document.getElementById('len').value);let G=parseFloat(document.getElementById('girth').value);if(!L||!G){alert('মান দিন');return;}let w=(L*G*G)/660;let r=document.getElementById('res');r.style.display='block';r.innerHTML=t[lang].live+': '+w.toFixed(2)+' KG<br>'+t[lang].meat+': '+(w*0.55).toFixed(2)+' KG';}
 </script>
 </body>
 </html>
