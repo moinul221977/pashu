@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pashu Weight Calculator</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#e8f5e9;margin:0;padding:10px}
+.box{max-width:650px;margin:auto;background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+h1{text-align:center;color:#14532d;margin:5px 0;line-height:1.3}
+.guide{background:#f0fdf4;border:2px dashed #22c55e;border-radius:12px;padding:12px;text-align:center;font-weight:700}
+label{display:block;margin-top:14px;font-weight:800}
+input{width:100%;padding:14px;border:2px solid #cbd5e1;border-radius:10px;font-size:18px;margin-top:6px;box-sizing:border-box}
+.btn{width:100%;padding:15px;background:#16a34a;color:#fff;border:0;border-radius:10px;font-size:19px;font-weight:900;margin-top:16px}
+.result{margin-top:16px;padding:16px;background:#dcfce7;border:2px solid #86efac;border-radius:12px;display:none;text-align:center}
+.big{font-size:28px;font-weight:900;color:#14532d}
+.mon{font-size:20px;font-weight:900;color:#92400e;background:#fef3c7;border:1px solid #fbbf24;padding:10px;border-radius:8px;margin-top:10px}
+.wa{display:inline-block;margin-top:12px;background:#25D366;color:#fff;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:800}
+.footer{text-align:center;margin-top:16px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>🐄 পশু ওজন ক্যালকুলেটর</h1>
+<div class="guide">সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ 660<br><span style="font-size:13px;font-weight:400;color:#666">দৈর্ঘ্য = সামনে থেকে পিছনে, বেড় = বুকের মাপ</span></div>
 
+<label>দৈর্ঘ্য (ইঞ্চি)</label>
+<input id="len" type="number" placeholder="যেমন: 70">
+<label>বেড় (ইঞ্চি)</label>
+<input id="gir" type="number" placeholder="যেমন: 65">
+
+<button class="btn" onclick="calc()">⚖️ ওজন হিসাব করুন</button>
+<div id="res" class="result"></div>
+
+<div class="footer">১ মন = ৪০ কেজি | মাংস ৫৫%<br><br>© 2026 Pashu Calculator</div>
+</div>
+<script>
+function calc(){
+var L=parseFloat(document.getElementById('len').value);
+var G=parseFloat(document.getElementById('gir').value);
+if(!L||!G){alert('দৈর্ঘ্য ও বেড় লিখুন');return;}
+var W=(L*G*G)/660;
+var M=W*0.55;
+var mon=Math.floor(M/40);
+var rem=(M-mon*40).toFixed(1);
+var monText=mon>0?mon+' মন '+rem+' কেজি':rem+' কেজি';
+var lw=W.toFixed(1); var lm=M.toFixed(1);
+var res=document.getElementById('res');
+res.style.display='block';
+var shareText='🐄 ওজন: জীবিত '+lw+' KG, মাংস '+lm+' KG ('+monText+')। হিসাব করুন: https://moinul221977.github.io/pashu/';
+var waUrl='https://wa.me/?text='+encodeURIComponent(shareText);
+res.innerHTML='<div class="big">জীবিত: '+lw+' KG</div><div style="font-size:20px;font-weight:700">মাংস: '+lm+' KG</div><div class="mon">⚖️ মাংস: '+monText+'</div><a class="wa" href="'+waUrl+'" target="_blank">📲 WhatsApp এ শেয়ার করুন</a>';
+res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
