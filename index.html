@@ -4,63 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PASHU CALCULATOR - পশুর ওজন মাপুন</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐄</text></svg>">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
 <style>
-body{font-family:system-ui;background:#f3f1e7;margin:0;padding:12px}
+body{font-family:system-ui;background:#fdf6e3;margin:0;padding:12px}
 .header{text-align:center}
 h1{margin:0;color:#166534;font-size:26px}
-.sub{font-size:12px;color:#666;letter-spacing:1px;margin-top:2px}
+.sub{font-size:12px;color:#666}
 .lang{display:flex;gap:8px;justify-content:center;margin:12px 0}
 .lang button{padding:7px 14px;border-radius:20px;border:1px solid #ccc;background:white}
 .lang button.active{background:#16a34a;color:white}
-.card{background:white;max-width:430px;margin:auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.12);padding-bottom:20px}
+.card{background:white;max-width:430px;margin:auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.12)}
 .card img{width:100%;display:block}
-label{font-weight:bold;display:block;margin:16px 16px 0 16px;font-size:16px}
-input{width:calc(100% - 32px);margin:8px 16px 0 16px;padding:14px;border-radius:12px;border:1px solid #bbb;font-size:18px;box-sizing:border-box}
-button.main{width:calc(100% - 32px);margin:18px 16px 0 16px;padding:15px;background:#16a34a;color:white;border:none;border-radius:12px;font-size:19px;font-weight:bold}
-.result{margin:14px 16px 0 16px;background:#16a34a;color:white;padding:14px;border-radius:12px;text-align:center;font-weight:bold;display:none;font-size:17px;line-height:1.5}
-.share{margin:12px 16px 0 16px;background:#25D366;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;display:none;cursor:pointer;border:none;width:calc(100% - 32px);font-size:16px}
-.share.show{display:block}
-.footer{text-align:center;font-size:11px;color:#888;margin-top:15px}
+.ad-box{margin:12px;background:#f9f9f9;border:1px dashed #aaa;border-radius:12px;padding:8px;text-align:center;min-height:90px}
+label{font-weight:bold;display:block;margin:16px 16px 0}
+input{width:calc(100% - 32px);margin:8px 16px 0;padding:14px;border-radius:12px;border:1px solid #bbb;font-size:18px}
+button.main{width:calc(100% - 32px);margin:18px 16px;padding:15px;background:#16a34a;color:white;border:none;border-radius:12px;font-size:19px;font-weight:bold}
+.result{margin:0 16px 16px;background:#16a34a;color:white;padding:14px;border-radius:12px;text-align:center;font-weight:bold;display:none}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>🐄 PASHU CALCULATOR</h1>
-<div class="sub">PASHU WEIGHT CALCULATOR</div>
-<div class="lang">
-<button id="b-bn" class="active" onclick="setLang('bn')">বাংলা</button>
-<button id="b-en" onclick="setLang('en')">English</button>
-<button id="b-hi" onclick="setLang('hi')">हिन्दी</button>
-</div>
-</div>
+<div class="header"><h1>🐄 PASHU CALCULATOR</h1><div class="sub">গরু/ছাগলের ওজন ও মাংসের হিসাব</div><div class="lang"><button class="active">বাংলা</button><button>English</button><button>हिन्दी</button></div></div>
 
 <div class="card">
-<img src="IMG_20261006_235816.jpg">
-
-<label id="l-len">দৈর্ঘ্য (L) - ইঞ্চিতে</label>
-<input id="len" type="number" placeholder="50">
-
-<label id="l-girth">বুকের বেড় (G) - ইঞ্চিতে</label>
-<input id="girth" type="number" placeholder="60">
-
-<button class="main" onclick="calc()" id="btn">ওজন হিসাব করুন</button>
-<div id="res" class="result"></div>
-<button id="shareBtn" class="share" onclick="shareWA()">📤 WhatsApp এ পাঠান</button>
+<img src="https://i.ibb.co/placeholder.jpg" alt="cow">
+<!-- AD 1 TOP -->
+<div class="ad-box">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 
-<div class="footer">© PASHU - Made for Farmers</div>
+<label>দৈর্ঘ্য (L) ইঞ্চি</label><input type="number" placeholder="যেমন 50">
+<label>বেড় (G) ইঞ্চি</label><input type="number" placeholder="যেমন 60">
 
-<script>
-let lang='bn'; let lastMsg='';
-const t={
-bn:{len:"দৈর্ঘ্য (L) - ইঞ্চিতে",girth:"বুকের বেড় (G) - ইঞ্চিতে",btn:"ওজন হিসাব করুন",live:"জীবিত ওজন",meat:"মাংস (55%)",share:"📤 WhatsApp এ পাঠান"},
-en:{len:"Length (L) - inch",girth:"Chest Girth (G) - inch",btn:"Calculate Weight",live:"Live Weight",meat:"Meat (55%)",share:"📤 Share on WhatsApp"},
-hi:{len:"लंबाई (L) - इंच में",girth:"छाती की गोलाई (G) - इंच में",btn:"वजन निकालें",live:"वजन",meat:"मांस (55%)",share:"📤 WhatsApp पर भेजें"}
-};
-function setLang(l){lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));document.getElementById('b-'+l).classList.add('active');document.getElementById('l-len').innerText=t[lang].len;document.getElementById('l-girth').innerText=t[lang].girth;document.getElementById('btn').innerText=t[lang].btn;document.getElementById('shareBtn').innerText=t[lang].share;}
-function calc(){let L=parseFloat(document.getElementById('len').value);let G=parseFloat(document.getElementById('girth').value);if(!L||!G){alert('মান দিন');return;}let w=(L*G*G)/660;let meat=w*0.55;let r=document.getElementById('res');r.style.display='block';r.innerHTML=t[lang].live+': '+w.toFixed(2)+' KG<br>'+t[lang].meat+': '+meat.toFixed(2)+' KG';lastMsg=`🐄 PASHU CALCULATOR\n${t[lang].len}: ${L} inch\n${t[lang].girth}: ${G} inch\n✅ ${t[lang].live}: ${w.toFixed(2)} KG\n🥩 ${t[lang].meat}: ${meat.toFixed(2)} KG\n\nmoinul221977.github.io/pashu/`;document.getElementById('shareBtn').classList.add('show');}
-function shareWA(){let url='https://wa.me/?text='+encodeURIComponent(lastMsg);window.open(url,'_blank');}
-</script>
+<!-- AD 2 MIDDLE -->
+<div class="ad-box">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<button class="main">ওজন হিসাব করুন</button>
+<div class="result">ফলাফল এখানে দেখাবে</div>
+
+<!-- AD 3 BOTTOM -->
+<div class="ad-box">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+</div>
 </body>
 </html>
