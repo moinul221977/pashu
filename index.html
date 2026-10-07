@@ -6,51 +6,67 @@
 <title>PASHU CALCULATOR - পশুর ওজন মাপুন</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
 <style>
-body{font-family:system-ui;background:#fdf6e3;margin:0;padding:12px}
-.header{text-align:center}
-h1{margin:0;color:#166534;font-size:26px}
-.sub{font-size:12px;color:#666}
-.lang{display:flex;gap:8px;justify-content:center;margin:12px 0}
-.lang button{padding:7px 14px;border-radius:20px;border:1px solid #ccc;background:white}
-.lang button.active{background:#16a34a;color:white}
-.card{background:white;max-width:430px;margin:auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+body{font-family:system-ui;background:#f0fdf4;margin:0;padding:12px}
+.header{text-align:center;padding:10px}
+h1{margin:0;color:#166534}
+.card{background:white;max-width:430px;margin:15px auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
 .card img{width:100%;display:block}
-.ad-box{margin:12px;background:#f9f9f9;border:1px dashed #aaa;border-radius:12px;padding:8px;text-align:center;min-height:90px}
-label{font-weight:bold;display:block;margin:16px 16px 0}
-input{width:calc(100% - 32px);margin:8px 16px 0;padding:14px;border-radius:12px;border:1px solid #bbb;font-size:18px}
-button.main{width:calc(100% - 32px);margin:18px 16px;padding:15px;background:#16a34a;color:white;border:none;border-radius:12px;font-size:19px;font-weight:bold}
-.result{margin:0 16px 16px;background:#16a34a;color:white;padding:14px;border-radius:12px;text-align:center;font-weight:bold;display:none}
+.card-body{padding:16px}
+label{font-weight:bold;display:block;margin-top:12px}
+input{width:100%;padding:12px;margin-top:6px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
+button.calc{width:100%;padding:14px;background:#16a34a;color:white;border:none;border-radius:10px;font-size:18px;font-weight:bold;margin-top:15px}
+.result{margin-top:15px;background:#dcfce7;padding:12px;border-radius:10px;text-align:center;font-weight:bold}
+.ad{margin:15px 0;background:#fff8e1;border:1px dashed #facc15;padding:10px;text-align:center;font-size:12px;color:#888}
+.footer{text-align:center;font-size:12px;color:#666;padding:15px}
 </style>
 </head>
 <body>
-<div class="header"><h1>🐄 PASHU CALCULATOR</h1><div class="sub">গরু/ছাগলের ওজন ও মাংসের হিসাব</div><div class="lang"><button class="active">বাংলা</button><button>English</button><button>हिन्दी</button></div></div>
+<div class="header"><h1>🐄 PASHU CALCULATOR</h1><p>গরু / ছাগলের ওজন ও মাংসের হিসাব</p></div>
 
 <div class="card">
-<img src="https://i.ibb.co/placeholder.jpg" alt="cow">
-<!-- AD 1 TOP -->
-<div class="ad-box">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?w=600" alt="cow">
+<div class="card-body">
+
+<div class="ad">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="1111111111" data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+Ad - Top
 </div>
 
-<label>দৈর্ঘ্য (L) ইঞ্চি</label><input type="number" placeholder="যেমন 50">
-<label>বেড় (G) ইঞ্চি</label><input type="number" placeholder="যেমন 60">
+<label>দৈর্ঘ্য (ইঞ্চি)</label>
+<input type="number" id="L" placeholder="60">
+<label>বুকের বেড় (ইঞ্চি)</label>
+<input type="number" id="G" placeholder="70">
+<button class="calc" onclick="calc()">ওজন বের করুন</button>
 
-<!-- AD 2 MIDDLE -->
-<div class="ad-box">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<div class="ad">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="2222222222" data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+Ad - Middle
 </div>
 
-<button class="main">ওজন হিসাব করুন</button>
-<div class="result">ফলাফল এখানে দেখাবে</div>
+<div class="result" id="res">এখানে ফলাফল দেখাবে</div>
 
-<!-- AD 3 BOTTOM -->
-<div class="ad-box">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<div class="ad">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1234567890123456" data-ad-slot="3333333333" data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+Ad - Bottom
 </div>
 
 </div>
+</div>
+
+<div class="footer"><a href="#">Privacy Policy</a> | <a href="#">About</a> | <a href="#">Contact</a><br>© 2026 Pashu Calculator</div>
+
+<script>
+function calc(){
+let L=document.getElementById('L').value;
+let G=document.getElementById('G').value;
+if(!L||!G){alert('দৈর্ঘ্য ও বেড় দিন');return;}
+let w=(G*G*L)/660;
+let meat=w*0.55;
+document.getElementById('res').innerHTML=`মোট ওজন: ${w.toFixed(2)} কেজি<br>মাংস: ${meat.toFixed(2)} কেজি<br>দাম (650 টাকা কেজি): ${(meat*650).toFixed(0)} টাকা`;
+}
+</script>
 </body>
 </html>
