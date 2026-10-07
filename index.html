@@ -3,42 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pashu Calculator - Cow Weight Calculator</title>
-<meta name="description" content="Calculate cow weight. গরুর ওজন মাপুন।">
+<title>Pashu Weight Calculator - গরুর ওজন মাপার ক্যালকুলেটর</title>
+<meta name="description" content="সূত্র সহ গরু, ছাগল, মহিষের ওজন ও মাংসের হিসাব করুন। Accurate cow weight and meat calculator.">
 <style>
-body{font-family:system-ui;background:#f0fdf4;margin:0;color:#222}
-.container{max-width:700px;margin:20px auto;background:#fff;padding:20px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+body{font-family:system-ui, sans-serif;background:#f0fdf4;margin:0;padding:15px}
+.container{max-width:700px;margin:20px auto;background:#fff;padding:20px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
 .top{display:flex;justify-content:space-between;align-items:center}
-.lang button{padding:6px 14px;border:1px solid #16a34a;border-radius:20px;background:#fff;color:#16a34a;font-weight:bold;cursor:pointer;margin-left:5px}
+.lang button{padding:6px 14px;border:1px solid #16a34a;border-radius:20px;background:#fff;cursor:pointer}
 .lang button.active{background:#16a34a;color:#fff}
-h1{text-align:center;color:#15803d}
-label{font-weight:bold;display:block;margin-top:15px}
-input{width:100%;padding:14px;margin-top:6px;border:1.5px solid #ccc;border-radius:10px;font-size:16px;box-sizing:border-box}
-button.calc{width:100%;padding:16px;background:#16a34a;color:#fff;border:none;border-radius:12px;font-size:19px;font-weight:bold;margin-top:18px}
-.result{margin-top:18px;padding:18px;background:#dcfce7;border-radius:12px;text-align:center;font-size:20px;font-weight:bold;display:none}
+h1{text-align:center;color:#15803d;margin:10px 0}
+.hero-img{width:100%;border-radius:12px;margin:15px 0}
+label{font-weight:bold;display:block;margin-top:12px}
+input{width:100%;padding:14px;margin-top:6px;border-radius:10px;border:1.5px solid #ccc;box-sizing:border-box}
+button.calc{width:100%;padding:16px;background:#16a34a;color:#fff;border:0;border-radius:12px;font-size:18px;font-weight:bold;margin-top:18px;cursor:pointer}
+.result{margin-top:18px;padding:18px;background:#dcfce7;border-radius:12px;display:none;text-align:center;font-size:18px}
 .info{background:#f9fafb;padding:15px;border-radius:12px;margin-top:20px;line-height:1.7}
-.footer{text-align:center;padding:20px}
-.footer a{margin:0 8px;color:#15803d;text-decoration:none;font-weight:bold}
+.footer{text-align:center;padding:20px;font-size:14px}
+.footer a{margin:0 8px;color:#15803d;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="container">
-<div class="top"><span style="font-weight:bold;color:#15803d">🐄 PASHU</span><div class="lang"><button id="bnBtn" class="active" onclick="setLang('bn')">বাংলা</button><button id="enBtn" onclick="setLang('en')">English</button></div></div>
+<div class="top"><span style="font-weight:bold">🐄 Pashu Calculator</span><div class="lang"><button id="b_bn" class="active" onclick="setLang('bn')">বাংলা</button><button id="b_en" onclick="setLang('en')">EN</button></div></div>
+
 <h1 id="t_title">🐄 পশু ওজন ক্যালকুলেটর</h1>
-<p id="t_sub" style="text-align:center">ফিতা দিয়ে গরুর ওজন মাপুন</p>
-<label id="t_l1">দৈর্ঘ্য (Length) - ইঞ্চিতে</label><input id="L" type="number" placeholder="50">
-<label id="t_l2">বেড় (Girth) - ইঞ্চিতে</label><input id="G" type="number" placeholder="60">
-<button class="calc" onclick="calc()" id="t_btn">ওজন হিসাব করুন</button>
-<div id="r" class="result"></div>
-<div class="info"><h2 id="t_h1">কিভাবে মাপবেন?</h2><p id="t_p1"></p><h2 id="t_h2">কেন জরুরি?</h2><p id="t_p2"></p></div>
+<p id="t_sub" style="text-align:center;color:#555">ফিতা দিয়ে সহজে ওজন বের করুন</p>
+
+<img src="cow-measure.jpg" alt="গরুর দৈর্ঘ্য ও বেড় কিভাবে মাপতে হয়" class="hero-img" onerror="this.src='https://via.placeholder.com/700x350?text=Cow+Measurement+Guide'">
+
+<label id="t_l1">দৈর্ঘ্য (Length) - ইঞ্চিতে</label>
+<input id="length" type="number" placeholder="যেমন: 70">
+<label id="t_l2">বেড় (Girth) - ইঞ্চিতে</label>
+<input id="girth" type="number" placeholder="যেমন: 65">
+
+<button class="calc" id="t_btn" onclick="calculate()">ওজন হিসাব করুন</button>
+<div class="result" id="result"></div>
+
+<div class="info">
+<h3 id="t_how">কিভাবে মাপবেন?</h3>
+<p id="t_how_p">১. গরুর সামনের পা থেকে পিছনের লেজের গোড়া পর্যন্ত দৈর্ঘ্য মাপুন।<br>২. বুকের বেড় (পেটের চারপাশে) মাপুন।<br><b>সূত্র:</b> (দৈর্ঘ্য × বেড় × বেড়) / 660 = ওজন কেজি। মাংস = 55%</p>
 </div>
-<div class="footer"><a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy-policy.html">Privacy</a><p>©2026 Pashu Calculator</p></div>
+<div class="footer"><a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="#">Privacy Policy</a><br><br>© 2026 Pashu Calculator</div>
+</div>
 <script>
-const dict={bn:{title:"🐄 পশু ওজন ক্যালকুলেটর",sub:"ফিতা দিয়ে গরু, ছাগল, মহিষের ওজন মাপুন",l1:"দৈর্ঘ্য (Length) - ইঞ্চিতে",l2:"বেড় (Girth) - ইঞ্চিতে",btn:"ওজন হিসাব করুন",h1:"কিভাবে মাপবেন?",p1:"১. দৈর্ঘ্য: কাঁধ থেকে নিতম্ব পর্যন্ত। ২. বেড়: বুকের চারপাশে। সূত্র: (বেড় x বেড় x দৈর্ঘ্য) / 660 = কেজি",h2:"কেন ওজন জানা জরুরি?",p2:"হাটে ঠকবেন না। নিজেই ওজন বের করে সঠিক দাম যাচাই করুন।",alert:"দয়া করে দৈর্ঘ্য ও বেড় লিখুন",live:"লাইভ ওজন",meat:"আনুমানিক মাংস"},en:{title:"🐄 Pashu Weight Calculator",sub:"Calculate Cow, Goat, Buffalo weight with tape",l1:"Length - in inch",l2:"Girth (Chest) - in inch",btn:"Calculate Weight",h1:"How to Measure?",p1:"1. Length: Shoulder to hip. 2. Girth: Around chest. Formula: (G x G x L) / 660 = KG",h2:"Why Matters?",p2:"Don't get cheated in market. Know the correct price.",alert:"Please enter Length and Girth",live:"Live Weight",meat:"Estimated Meat"}};
-let cur='bn';
-function setLang(l){cur=l;document.getElementById('bnBtn').className=l=='bn'?'active':'';document.getElementById('enBtn').className=l=='en'?'active':'';document.getElementById('t_title').innerHTML=dict[l].title;document.getElementById('t_sub').innerHTML=dict[l].sub;document.getElementById('t_l1').innerHTML=dict[l].l1;document.getElementById('t_l2').innerHTML=dict[l].l2;document.getElementById('t_btn').innerHTML=dict[l].btn;document.getElementById('t_h1').innerHTML=dict[l].h1;document.getElementById('t_p1').innerHTML=dict[l].p1;document.getElementById('t_h2').innerHTML=dict[l].h2;document.getElementById('t_p2').innerHTML=dict[l].p2;localStorage.setItem('pashu_lang',l);}
-function calc(){let L=parseFloat(document.getElementById('L').value);let G=parseFloat(document.getElementById('G').value);if(!L||!G){alert(dict[cur].alert);return;}let live=(G*G*L)/660;let meat=live*0.55;let r=document.getElementById('r');r.style.display='block';r.innerHTML=dict[cur].live+': '+live.toFixed(2)+' KG<br>'+dict[cur].meat+': '+meat.toFixed(2)+' KG';}
-let saved=localStorage.getItem('pashu_lang');if(saved){setLang(saved);}else{let b=navigator.language||'bn';if(b.startsWith('en')){setLang('en');}else{setLang('bn');}}
+let lang='bn';
+const tr={
+bn:{title:"🐄 পশু ওজন ক্যালকুলেটর",sub:"ফিতা দিয়ে সহজে ওজন বের করুন",l1:"দৈর্ঘ্য (Length) - ইঞ্চিতে",l2:"বেড় (Girth) - ইঞ্চিতে",btn:"ওজন হিসাব করুন",how:"কিভাবে মাপবেন?",how_p:"১. গরুর সামনের পা থেকে পিছনের লেজের গোড়া পর্যন্ত দৈর্ঘ্য মাপুন।<br>২. বুকের বেড় (পেটের চারপাশে) মাপুন।<br><b>সূত্র:</b> (দৈর্ঘ্য × বেড় × বেড়) / 660 = ওজন কেজি। মাংস = 55%",res1:"আনুমানিক ওজন",res2:"মাংসের পরিমাণ",fill:"দৈর্ঘ্য ও বেড় লিখুন"},
+en:{title:"🐄 Cow Weight Calculator",sub:"Calculate weight with measuring tape",l1:"Length - in inch",l2:"Girth - in inch",btn:"Calculate Weight",how:"How to measure?",how_p:"1. Measure length from shoulder to tail.<br>2. Measure chest girth.<br><b>Formula:</b> (L × G × G) / 660 = Weight KG. Meat = 55%",res1:"Approx Weight",res2:"Meat Yield",fill:"Enter Length & Girth"}
+};
+function setLang(l){lang=l;document.getElementById('b_bn').className=l=='bn'?'active':'';document.getElementById('b_en').className=l=='en'?'active':'';document.getElementById('t_title').innerHTML=tr[l].title;document.getElementById('t_sub').innerHTML=tr[l].sub;document.getElementById('t_l1').innerHTML=tr[l].l1;document.getElementById('t_l2').innerHTML=tr[l].l2;document.getElementById('t_btn').innerHTML=tr[l].btn;document.getElementById('t_how').innerHTML=tr[l].how;document.getElementById('t_how_p').innerHTML=tr[l].how_p;}
+function calculate(){
+let L=parseFloat(document.getElementById('length').value);let G=parseFloat(document.getElementById('girth').value);if(!L||!G){alert(tr[lang].fill);return}
+let w=(L*G*G)/660;let meat=w*0.55;
+document.getElementById('result').style.display='block';
+document.getElementById('result').innerHTML=`<b>${tr[lang].res1}:</b> ${w.toFixed(1)} KG<br><b>${tr[lang].res2}:</b> ${meat.toFixed(1)} KG`;
+}
 </script>
 </body>
 </html>
