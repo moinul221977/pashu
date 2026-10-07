@@ -1,1 +1,47 @@
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>পশু ওজন ক্যালকুলেটর</title>
+<style>
+body{font-family:Arial; background:#f5f5f5; display:flex; justify-content:center; padding:20px;}
+.box{background:white; padding:20px; border-radius:16px; max-width:400px; width:100%; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+h1{text-align:center; font-size:22px;}
+.guide{font-size:14px; background:#fff8e1; padding:8px; border-radius:8px; margin-bottom:12px; text-align:center;}
+label{display:block; margin-top:12px; font-weight:bold;}
+input{width:100%; padding:10px; margin-top:5px; border-radius:8px; border:1px solid #ccc; font-size:16px;}
+.btn{width:100%; margin-top:15px; padding:12px; background:#2e7d32; color:white; border:none; border-radius:8px; font-size:18px;}
+.result{margin-top:15px; font-size:20px; font-weight:bold; text-align:center; color:#2e7d32;}
+.footer{margin-top:15px; text-align:center; font-size:13px; color:#666;}
+</style>
+</head>
+<body>
+<div class="box">
+<img src="cow-top.jpg" style="width:100%; border-radius:12px; margin-bottom:12px;">
+<h1>🐄 পশু ওজন ক্যালকুলেটর</h1>
+<div class="guide">সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ ৬৬০</div>
+<label>দৈর্ঘ্য (ইঞ্চি)</label>
+<input id="len" type="number" placeholder="যেমন: 70">
+<label>বেড় (ইঞ্চি)</label>
+<input id="gir" type="number" placeholder="যেমন: 65">
+<button class="btn" onclick="calc()">⚖️ হিসাব করুন</button>
+<div id="res" class="result"></div>
+<div class="footer">১ মন = ৪০ কেজি | মাংস ৫৫%<br>© 2026 Pashu Calculator</div>
+</div>
+<script>
+function calc(){
+var L=parseFloat(document.getElementById('len').value);
+var G=parseFloat(document.getElementById('gir').value);
+if(!L||!G){alert('দৈর্ঘ্য ও বেড় লিখুন');return;}
+var W=(L*G*G)/660;
+var M=W*0.55;
+var mon=Math.floor(M/40);
+var rem=(M-mon*40).toFixed(1);
+var monText=mon>0?mon+' মন '+rem+' কেজি':rem+' কেজি';
+var lw=W.toFixed(1); var lm=M.toFixed(1);
+document.getElementById('res').innerHTML='লাইভ ওজন: '+lw+' কেজি<br>মাংস: '+lm+' কেজি<br>'+monText;
+}
+</script>
+</body>
+</html>
