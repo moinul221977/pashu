@@ -1,1 +1,15 @@
-
+<script>
+function calculate(){
+let L=parseFloat(document.getElementById('len').value),G=parseFloat(document.getElementById('girth').value);
+if(!L||!G){alert('দৈর্ঘ্য ও বেড় লিখুন');return;}
+let kg=(L*G*G)/660,mon=kg/40,meat=kg*0.55;
+lastResult=`জীবিত ওজন: ${kg.toFixed(1)} কেজি (${mon.toFixed(2)} মন) | মাংস: ${meat.toFixed(1)} কেজি`;
+document.getElementById('resultText').innerHTML=`
+<div style="font-size:16px;color:#666">জীবিত ওজন / Live Weight</div>
+<b style="font-size:30px;color:#15803d">${kg.toFixed(1)} কেজি</b><br>
+<b style="font-size:22px">${mon.toFixed(2)} মন</b><br>
+<div style="margin-top:8px;background:#fff;padding:8px;border-radius:8px">🥩 মাংস (৫৫%): <b>${meat.toFixed(1)} কেজি</b> (${(meat/40).toFixed(2)} মন)</div>
+`;
+document.getElementById('resultBox').style.display='block';
+}
+</script>
