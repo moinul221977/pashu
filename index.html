@@ -3,67 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
-<title>Pashu Weight Calculator</title>
+<title>পশু ওজন ক্যালকুলেটর - গরুর ওজন মাপুন</title>
+<meta name="description" content="গরু, ছাগল, মহিষের জীবিত ওজন ও মাংসের ওজন হিসাব করুন। সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ ৬৬০">
+<!-- Google AdSense - আপনার ID পেলে এখানে বসাবেন -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f6f7f9;font-family:system-ui;padding:10px}
 .card{max-width:500px;margin:auto;background:#fff;border-radius:16px;padding:20px;padding-bottom:400px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-.header{display:flex;justify-content:space-between;align-items:center}
-.lang-btn{background:#eef2ff;border:1px solid #c7d2fe;padding:8px 14px;border-radius:20px;font-weight:bold}
-.top-img{width:100%;border-radius:12px;margin:12px 0;display:block}
-h2{text-align:center;margin:8px 0}
-.formula{background:#fef9c3;padding:10px;border-radius:10px;text-align:center;font-weight:bold}
-label{font-weight:bold;display:block;margin:22px 0 8px;font-size:18px}
-input{width:100%;padding:18px;border:3px solid #15803d;border-radius:12px;font-size:22px;background:#fff}
-.btn{width:100%;background:#15803d;color:#fff;border:none;padding:18px;border-radius:12px;font-size:20px;font-weight:bold;margin-top:25px}
+.ad-box{background:#f1f1f1;border:1px dashed #aaa;border-radius:10px;padding:10px;text-align:center;margin:12px 0;color:#666;font-size:13px}
+label{font-weight:bold;display:block;margin:20px 0 8px;font-size:18px}
+input{width:100%;padding:18px;border:3px solid #15803d;border-radius:12px;font-size:22px}
+.btn{width:100%;background:#15803d;color:#fff;border:none;padding:18px;border-radius:12px;font-size:20px;font-weight:bold;margin-top:20px}
 .result{margin-top:20px;background:#f0fdf4;border:3px solid #15803d;border-radius:12px;padding:18px;display:none;text-align:center}
 .whatsapp{background:#25D366;color:#fff;border:none;padding:14px;border-radius:10px;width:100%;font-size:17px;font-weight:bold;margin-top:12px}
 </style>
 </head>
 <body>
 <div class="card">
-<div class="header"><b>🐄 Pashu</b><button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button></div>
-<img src="cow-top.jpg" class="top-img">
-<h2 id="title">🐄 পশু ওজন ক্যালকুলেটর</h2>
-<div class="formula">সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ ৬৬০</div>
 
-<label id="l1">দৈর্ঘ্য (ইঞ্চি) - A থেকে B</label>
-<input type="number" id="len" placeholder="যেমন: 70" onfocus="onFocus(this)">
-
-<label id="l2">বুকের বেড় (ইঞ্চি) - C</label>
-<input type="number" id="girth" placeholder="যেমন: 65" onfocus="onFocus(this)">
-
-<button class="btn" onclick="calculate()" id="calcBtn">⚖️ হিসাব করুন</button>
-
-<div class="result" id="resultBox">
-<div id="resultText"></div>
-<button class="whatsapp" onclick="shareWA()" id="waBtn">📲 WhatsApp এ শেয়ার করুন</button>
+<!-- উপরের বিজ্ঞাপন -->
+<div class="ad-box">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<p>বিজ্ঞাপন</p>
 </div>
+
+<h2 style="text-align:center">🐄 পশু ওজন ক্যালকুলেটর</h2>
+<div style="background:#fef9c3;padding:10px;border-radius:10px;text-align:center;font-weight:bold">সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ ৬৬০</div>
+
+<label>দৈর্ঘ্য (ইঞ্চি)</label>
+<input type="number" id="len" placeholder="যেমন: 70" onfocus="this.scrollIntoView({block:'center'})">
+<label>বুকের বেড় (ইঞ্চি)</label>
+<input type="number" id="girth" placeholder="যেমন: 65" onfocus="this.scrollIntoView({block:'center'})">
+<button class="btn" onclick="calculate()">⚖️ হিসাব করুন</button>
+
+<div class="result" id="resultBox"><div id="resultText"></div>
+<button class="whatsapp" onclick="shareWA()">📲 WhatsApp এ শেয়ার করুন</button>
+</div>
+
+<!-- রেজাল্টের নিচের বিজ্ঞাপন - এখানে ক্লিক বেশি হয় -->
+<div class="ad-box" style="margin-top:20px">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<p>বিজ্ঞাপন</p>
+</div>
+
+<div style="background:#eef2ff;padding:12px;border-radius:10px;margin-top:15px;font-size:14px">
+📢 আপনার গো-খাদ্য / খামারের বিজ্ঞাপন এখানে দিতে চান? <br>যোগাযোগ: <b>WhatsApp</b> এ মেসেজ দিন
+</div>
+
 </div>
 <script>
-function onFocus(el){setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'center'});window.scrollBy(0,100);},300);}
-let lastText='';
-let lang='bn';
-const t={bn:{l1:'দৈর্ঘ্য (ইঞ্চি) - A থেকে B',l2:'বুকের বেড় (ইঞ্চি) - C',btn:'⚖️ হিসাব করুন',wa:'📲 WhatsApp এ শেয়ার করুন',lang:'English'},en:{l1:'Length (inch) - A to B',l2:'Girth (inch) - C',btn:'⚖️ Calculate',wa:'📲 Share on WhatsApp',lang:'বাংলা'}};
-function toggleLang(){lang=lang==='bn'?'en':'bn';const tr=t[lang];document.getElementById('l1').innerText=tr.l1;document.getElementById('l2').innerText=tr.l2;document.getElementById('calcBtn').innerText=tr.btn;document.getElementById('waBtn').innerText=tr.wa;document.getElementById('langBtn').innerText=tr.lang;}
 function calculate(){
-let L=parseFloat(document.getElementById('len').value);
-let G=parseFloat(document.getElementById('girth').value);
+let L=parseFloat(document.getElementById('len').value),G=parseFloat(document.getElementById('girth').value);
 if(!L||!G){alert('দৈর্ঘ্য ও বেড় লিখুন');return;}
-let kg=(L*G*G)/660;
-let mon=kg/40;
-let meat=kg*0.55;
-lastText=`জীবিত ওজন: ${kg.toFixed(1)} কেজি, ${mon.toFixed(2)} মন, মাংস: ${meat.toFixed(1)} কেজি`;
-document.getElementById('resultText').innerHTML=`
-<div style="color:#666;font-size:15px">জীবিত ওজন / Live Weight</div>
-<div style="font-size:32px;font-weight:bold;color:#15803d">${kg.toFixed(1)} কেজি</div>
-<div style="font-size:20px;font-weight:bold;margin:5px 0">${mon.toFixed(2)} মন</div>
-<div style="background:#fff;padding:10px;border-radius:8px;margin-top:10px;font-size:18px">🥩 মাংস (৫৫%): <b>${meat.toFixed(1)} কেজি</b> (${(meat/40).toFixed(2)} মন)</div>
-<div style="font-size:13px;color:#666;margin-top:8px">সূত্র: (L×G×G)÷660 | ১ মন=৪০ কেজি</div>
-`;
+let kg=(L*G*G)/660,mon=kg/40,meat=kg*0.55;
+document.getElementById('resultText').innerHTML=`<div style="color:#666">জীবিত ওজন / Live Weight</div><div style="font-size:32px;font-weight:bold;color:#15803d">${kg.toFixed(1)} কেজি</div><div style="font-size:20px;font-weight:bold">${mon.toFixed(2)} মন</div><div style="background:#fff;padding:10px;border-radius:8px;margin-top:10px">🥩 মাংস: <b>${meat.toFixed(1)} কেজি</b></div>`;
 document.getElementById('resultBox').style.display='block';
-setTimeout(()=>{document.getElementById('resultBox').scrollIntoView({behavior:'smooth',block:'start'});},300);
+document.getElementById('resultBox').scrollIntoView({behavior:'smooth'});
 }
-function shareWA(){let url=`https://wa.me/?text=${encodeURIComponent('🐄 '+lastText+'\nhttps://moinul221977.github.io/pashu/')}`;window.open(url,'_blank');}
+function shareWA(){window.open(`https://wa.me/?text=${encodeURIComponent('🐄 পশুর ওজন: '+document.getElementById('resultText').innerText+'\nhttps://moinul221977.github.io/pashu/')}`,'_blank');}
 </script>
 </body>
 </html>
