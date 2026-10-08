@@ -3,60 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pashu Haat - গরুর ওজন ক্যালকুলেটর ও লাইভ হাট</title>
+<title>Pashu Haat - গরুর ওজন মাপুন</title>
 
-<!-- Google AdSense - আপনার কোড -->
+<!-- Google AdSense - টাকা ইনকামের কোড - ভুলেও ডিলিট করবেন না -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8692901315353261" crossorigin="anonymous"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family: 'Hind Siliguri', Arial; background:#f5f5f5; color:#333}
-.header{background:#fff; padding:15px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-.header img{width:100%; max-width:600px; border-radius:12px; margin-top:10px}
-.container{max-width:700px; margin:15px auto; padding:0 12px}
-.card{background:#fff; padding:20px; border-radius:12px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-h1{color:#1a7a33; font-size:22px}
-h2{font-size:18px; margin-bottom:10px; color:#333}
-.input-group{margin:12px 0}
-.input-group label{display:block; margin-bottom:5px; font-weight:bold}
-.input-group input, .input-group select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:16px}
-.btn{width:100%; padding:14px; background:#28a745; color:white; border:none; border-radius:8px; font-size:18px; font-weight:bold; cursor:pointer}
-.result{background:#e8f5e9; padding:15px; border-radius:8px; margin-top:15px; text-align:center; font-size:18px; line-height:1.8}
-.ads{margin:15px 0; text-align:center; background:#fff; padding:10px; border-radius:8px; border:1px dashed #ccc; min-height:90px}
-.whatsapp{display:block; background:#25D366; color:white; text-align:center; padding:15px; border-radius:10px; text-decoration:none; font-size:18px; font-weight:bold; margin-top:15px}
-.live{position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px}
+body{font-family:'Hind Siliguri',Arial; background:#f1f1f1}
+.header{background:#fff; text-align:center; padding:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.header img{width:100%; max-width:650px; height:auto; border-radius:12px; margin-top:10px}
+.container{max-width:720px; margin:0 auto; padding:12px}
+.card{background:#fff; padding:20px; border-radius:14px; margin-bottom:14px; box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.input-group{margin:14px 0}
+.input-group label{display:block; font-weight:bold; margin-bottom:6px; font-size:15px}
+.input-group input, select{width:100%; padding:14px; border:1.5px solid #ddd; border-radius:10px; font-size:16px}
+.result{background:#e8f5e9; border:2px solid #28a745; padding:18px; border-radius:12px; margin-top:15px; text-align:center; font-size:19px; line-height:2; font-weight:bold}
+.ads{background:#fff; text-align:center; padding:12px; border-radius:10px; margin:14px 0; border:1px dashed #aaa; min-height:100px}
+.whatsapp{display:block; background:#25D366; color:#fff; text-align:center; padding:15px; border-radius:12px; text-decoration:none; font-size:19px; font-weight:bold; margin-top:12px}
+.live{position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; margin-top:10px; background:#000}
 .live iframe{position:absolute; top:0; left:0; width:100%; height:100%}
 .footer{text-align:center; padding:20px; font-size:14px}
-.footer a{color:#1a7a33; text-decoration:none; margin:0 8px}
+.footer a{color:#1a7a33; text-decoration:none; margin:0 10px}
 </style>
 </head>
 <body>
 
+<!-- 1. সবার উপরে গরুর ছবি -->
 <div class="header">
-<h1>🐄 পশুর হাট - লাইভ গরুর বাজার 🐐</h1>
-<img src="cow-top.jpg" alt="Goru Chobi">
-<p>জীবিত ওজন থেকে মাংসের হিসাব</p>
+<h1 style="color:#1a7a33">🐄 পশুর হাট - লাইভ গরুর বাজার</h1>
+<img src="cow-top.jpg" alt="Gorur Chobi">
+<p style="margin-top:8px">ফিতা দিয়ে গরুর ওজন মাপুন</p>
 </div>
 
 <div class="container">
 
-<!-- বিজ্ঞাপন ১ - উপরে -->
-<div class="ads">
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-8692901315353261"
-data-ad-slot="1234567890"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-<small>Advertisement</small>
-</div>
-
+<!-- 2. তার নিচে ক্যালকুলেটর - দৈর্ঘ্য বুকের বেড়ের বক্স -->
 <div class="card">
 <h2>⚖️ ওজন ক্যালকুলেটর / Weight Calculator</h2>
 
 <div class="input-group">
-<label>ভাষা / Language</label>
+<label>🌐 ভাষা / Language</label>
 <select id="lang" onchange="calculate()">
 <option value="bn">বাংলা</option>
 <option value="en">English</option>
@@ -64,17 +51,22 @@ data-full-width-responsive="true"></ins>
 </div>
 
 <div class="input-group">
-<label id="label-weight">জীবিত ওজন (কেজি) লিখুন</label>
-<input type="number" id="liveWeight" placeholder="যেমন: 300" oninput="calculate()">
+<label id="lb1">📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন</label>
+<input type="number" id="len" placeholder="যেমন: 51" oninput="calculate()">
 </div>
 
-<div class="result" id="result">
-ওজন লিখুন, ফলাফল এখানে দেখাবে...
-</div>
+<div class="input-group">
+<label id="lb2">⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন</label>
+<input type="number" id="girth" placeholder="যেমন: 62" oninput="calculate()">
 </div>
 
-<!-- বিজ্ঞাপন ২ - মাঝে -->
+<div class="result" id="result">👆 দৈর্ঘ্য ও বুকের বেড় লিখুন...</div>
+<p style="text-align:center; font-size:12px; color:#666; margin-top:8px">সূত্র: (L × G × G) ÷ 660 = জীবিত ওজন (কেজি)</p>
+</div>
+
+<!-- 3. বিজ্ঞাপন - AdSense টাকা ইনকাম -->
 <div class="ads">
+<p style="font-size:12px; color:#888">Advertisement - বিজ্ঞাপন</p>
 <ins class="adsbygoogle"
 style="display:block"
 data-ad-client="ca-pub-8692901315353261"
@@ -82,31 +74,20 @@ data-ad-slot="1234567890"
 data-ad-format="auto"
 data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-<small>Advertisement</small>
 </div>
 
+<!-- 4. লাইভ ভিডিও + WhatsApp + বিজ্ঞাপন সব নিচে -->
 <div class="card">
 <h2>📹 লাইভ ভিডিও / Live Video</h2>
-<p style="font-size:14px; margin-bottom:10px;">আপনার YouTube Live লিঙ্ক এখানে বসাতে পারবেন</p>
 <div class="live">
-<!-- এখানে আপনার YouTube Live Video ID বসান, যেমন: dQw4w9WgXcQ -->
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Live Video" frameborder="0" allowfullscreen></iframe>
 </div>
-<p style="text-align:center; margin-top:10px; font-size:13px;">Live করতে চাইলে YouTube এ গিয়ে Live শুরু করুন, Video ID কপি করে উপরের লিঙ্কে বসান</p>
-</div>
+<p style="font-size:12px; text-align:center; margin-top:8px">YouTube Live ID পরিবর্তন করে আপনার লাইভ বসাতে পারবেন</p>
 
-<div class="card">
-<a class="whatsapp" href="https://wa.me/8801XXXXXXXXX?text=ভাই গরুটা কত?" target="_blank">
-💬 WhatsApp এ যোগাযোগ করুন
-</a>
-<p style="text-align:center; font-size:12px; margin-top:8px;">8801XXXXXXXXX এর জায়গায় আপনার নাম্বার বসান</p>
-
-<a class="whatsapp" style="background:#0088cc; margin-top:10px" href="https://wa.me/?text=গরুর%20ওজন%20ক্যালকুলেটর%20দেখুন%20https://moinul221977.github.io/pashu/" target="_blank">
-📤 বন্ধুকে শেয়ার করুন
-</a>
+<a class="whatsapp" href="https://wa.me/8801712345678?text=ভাই গরুর দাম কত?" target="_blank">💬 WhatsApp এ কথা বলুন</a>
+<a class="whatsapp" style="background:#0088cc" href="https://wa.me/?text=গরুর ওজন মাপুন https://moinul221977.github.io/pashu/" target="_blank">📤 বন্ধুকে শেয়ার করুন</a>
 </div>
 
-<!-- বিজ্ঞাপন ৩ - নিচে -->
 <div class="ads">
 <ins class="adsbygoogle"
 style="display:block"
@@ -119,35 +100,34 @@ data-full-width-responsive="true"></ins>
 </div>
 
 <div class="footer">
-<a href="about.html">About</a> |
-<a href="contact.html">Contact</a> |
-<a href="privacy-policy.html">Privacy Policy</a>
-<p style="margin-top:10px;">© 2026 Pashu Haat - All Rights Reserved</p>
+<a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy-policy.html">Privacy</a>
+<p style="margin-top:10px">© 2026 Pashu Haat</p>
 </div>
 
 </div>
 
 <script>
 function calculate(){
-let w = parseFloat(document.getElementById('liveWeight').value);
+let L = parseFloat(document.getElementById('len').value);
+let G = parseFloat(document.getElementById('girth').value);
 let lang = document.getElementById('lang').value;
-let res = document.getElementById('result');
-if(!w || w<=0){ res.innerHTML = lang=='bn' ? 'ওজন লিখুন, ফলাফল এখানে দেখাবে...' : 'Enter weight, result will show here...'; return; }
-
-let kg = w;
-let mon = (w/40).toFixed(2);
-let meat = (w*0.55).toFixed(1); // 55% মাংস ধরা হয়
-let meatMon = (meat/40).toFixed(2);
+let r = document.getElementById('result');
+if(!L || !G){ r.innerHTML = lang=='bn'?'👆 দৈর্ঘ্য ও বুকের বেড় লিখুন...':'👆 Enter Length & Girth...'; return; }
+let live = (L*G*G)/660;
+let mon = live/40;
+let meat = live*0.55;
+let meatMon = meat/40;
 
 if(lang=='bn'){
-document.getElementById('label-weight').innerText='জীবিত ওজন (কেজি) লিখুন';
-res.innerHTML = `✅ জীবিত ওজন: <b>${kg} কেজি</b> (${mon} মণ)<br>🥩 মাংস হবে: <b>${meat} কেজি</b> (${meatMon} মণ)<br><small>১ মণ = ৪০ কেজি</small>`;
+document.getElementById('lb1').innerText='📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন';
+document.getElementById('lb2').innerText='⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন';
+r.innerHTML = `✅ জীবিত ওজন: <b>${live.toFixed(1)} কেজি</b> (${mon.toFixed(2)} মণ)<br>🥩 মাংস হবে: <b>${meat.toFixed(1)} কেজি</b> (${meatMon.toFixed(2)} মণ)<br><small>১ মণ = ৪০ কেজি</small>`;
 }else{
-document.getElementById('label-weight').innerText='Enter Live Weight (KG)';
-res.innerHTML = `✅ Live Weight: <b>${kg} KG</b> (${mon} Mon)<br>🥩 Meat: <b>${meat} KG</b> (${meatMon} Mon)<br><small>1 Mon = 40 KG</small>`;
+document.getElementById('lb1').innerText='📏 Length (L) - in inch';
+document.getElementById('lb2').innerText='⭕ Chest Girth (G) - in inch';
+r.innerHTML = `✅ Live Weight: <b>${live.toFixed(1)} KG</b> (${mon.toFixed(2)} Mon)<br>🥩 Meat: <b>${meat.toFixed(1)} KG</b> (${meatMon.toFixed(2)} Mon)<br><small>1 Mon = 40 KG</small>`;
 }
 }
 </script>
-
 </body>
 </html>
