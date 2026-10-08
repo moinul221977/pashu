@@ -1,1 +1,51 @@
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pashu Weight Calculator</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;background:#f6f7f9;margin:0;padding:10px}
+.card{max-width:500px;margin:20px auto;background:#fff;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.lang-btn{background:#eef2ff;border:1px solid #c7d2fe;padding:8px 14px;border-radius:20px;cursor:pointer;font-weight:bold}
+.top-img{width:100%;border-radius:12px;margin-bottom:15px}
+h2{text-align:center;margin:10px 0}
+.formula{background:#fef9c3;padding:10px;border-radius:10px;text-align:center;font-weight:bold;margin-bottom:15px}
+label{font-weight:bold;display:block;margin:12px 0 5px}
+input{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;font-size:16px;box-sizing:border-box}
+.btn{width:100%;background:#15803d;color:#fff;border:none;padding:15px;border-radius:10px;font-size:18px;font-weight:bold;margin-top:15px;cursor:pointer}
+.result{background:#f0fdf4;border:2px solid #15803d;border-radius:12px;padding:15px;margin-top:15px;display:none;text-align:center}
+.whatsapp{background:#25D366;color:#fff;border:none;padding:12px;border-radius:10px;width:100%;font-size:16px;font-weight:bold;margin-top:10px;cursor:pointer}
+.footer{text-align:center;font-size:13px;color:#666;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="header">
+<span>🐄 Pashu Calculator</span>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+</div>
+<img src="cow-top.jpg" class="top-img">
+<h2 id="title">🐄 পশু ওজন ক্যালকুলেটর</h2>
+<div class="formula" id="formula">সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ ৬৬০</div>
+<label id="l1">দৈর্ঘ্য (ইঞ্চি)</label>
+<input type="number" id="len" placeholder="যেমন: 70">
+<label id="l2">বেড় (ইঞ্চি)</label>
+<input type="number" id="girth" placeholder="যেমন: 65">
+<button class="btn" onclick="calculate()" id="calcBtn">⚖️ হিসাব করুন</button>
+<div class="result" id="resultBox">
+<div id="resultText"></div>
+<button class="whatsapp" onclick="shareWA()" id="waBtn">📲 WhatsApp এ শেয়ার করুন</button>
+</div>
+<div class="footer">১ মন = ৪০ কেজি | মাংস ৫৫%<br>© 2026 Pashu Calculator</div>
+</div>
+<script>
+let lang='bn';let lastResult='';
+const t={bn:{title:'🐄 পশু ওজন ক্যালকুলেটর',formula:'সূত্র: (দৈর্ঘ্য × বেড় × বেড়) ÷ ৬৬০',l1:'দৈর্ঘ্য (ইঞ্চি)',l2:'বেড় (ইঞ্চি)',ph1:'যেমন: 70',ph2:'যেমন: 65',btn:'⚖️ হিসাব করুন',wa:'📲 WhatsApp এ শেয়ার করুন',lang:'English'},en:{title:'🐄 Cattle Weight Calculator',formula:'Formula: (Length × Girth × Girth) ÷ 660',l1:'Length (inch)',l2:'Girth (inch)',ph1:'e.g: 70',ph2:'e.g: 65',btn:'⚖️ Calculate',wa:'📲 Share on WhatsApp',lang:'বাংলা'}};
+function toggleLang(){lang=lang==='bn'?'en':'bn';const tr=t[lang];document.getElementById('title').innerText=tr.title;document.getElementById('formula').innerText=tr.formula;document.getElementById('l1').innerText=tr.l1;document.getElementById('l2').innerText=tr.l2;document.getElementById('len').placeholder=tr.ph1;document.getElementById('girth').placeholder=tr.ph2;document.getElementById('calcBtn').innerText=tr.btn;document.getElementById('waBtn').innerText=tr.wa;document.getElementById('langBtn').innerText=tr.lang;}
+function calculate(){let L=parseFloat(document.getElementById('len').value);let G=parseFloat(document.getElementById('girth').value);if(!L||!G){alert(lang==='bn'?'দৈর্ঘ্য ও বেড় লিখুন':'Enter Length and Girth');return;}let kg=(L*G*G)/660;let mon=kg/40;let meat=kg*0.55;lastResult=(lang==='bn'?`ওজন: ${kg.toFixed(1)} কেজি (${mon.toFixed(2)} মন) | মাংস: ${meat.toFixed(1)} কেজি`:`Weight: ${kg.toFixed(1)} KG (${mon.toFixed(2)} Mon) | Meat: ${meat.toFixed(1)} KG`);document.getElementById('resultText').innerHTML=`<b style="font-size:22px">${kg.toFixed(1)} KG</b><br>${mon.toFixed(2)} Mon | Meat: ${meat.toFixed(1)} KG`;document.getElementById('resultBox').style.display='block';}
+function shareWA(){let text=`🐄 Pashu Weight Result:%0A${lastResult}%0A%0Ahttps://moinul221977.github.io/pashu/`;window.open(`https://wa.me/?text=${text}`,'_blank');}
+</script>
+</body>
+</html>
