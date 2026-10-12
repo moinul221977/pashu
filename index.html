@@ -101,7 +101,7 @@ document.getElementById('lb1').innerText='📏 Length (L) - in inch';
 document.getElementById('lb2').innerText='⭕ Chest Girth (G) - in inch';
 r.innerHTML = `✅ Live Weight: <b>${live.toFixed(1)} KG</b> (${mon.toFixed(2)} Mon)<br>🥩 Meat: <b>${meat.toFixed(1)} KG</b> (${meatMon.toFixed(2)} Mon)<br><small>1 Mon = 40 KG</small>`;
 }
-}
+r.scrollIntoView({behavior:"smooth", block:"center"});
 </script>
 </body>
 </html>
