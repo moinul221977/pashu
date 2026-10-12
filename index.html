@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pashu Eta - পশুর হাট লাইভ গরুর বাজার</title>
+<meta name="description" content="ফিতা দিয়ে গরুর ওজন মাপুন">
+<meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXX">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<style>
+body{margin:0;background:#f5f5f7;font-family:system-ui;padding-bottom:350px}
+.header{max-width:560px;margin:0 auto;background:#fff;text-align:center;padding:20px 12px}
+.header h1{color:#15803d;margin:0;font-size:30px;font-weight:800}
+.cow-card{max-width:560px;margin:12px auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 16px #0001}
+.cow-card img{width:100%;display:block}
+.ad{max-width:560px;margin:12px auto;background:#fff;border-radius:12px;padding:6px;text-align:center;min-height:90px}
+.calc{max-width:560px;margin:12px auto;background:#fff;border-radius:20px;padding:20px}
+label{font-weight:700;display:block;margin:12px 0 6px}
+input,select{width:100%;padding:14px;border:1.5px solid #d1d5db;border-radius:12px;font-size:18px;box-sizing:border-box}
+button{width:100%;padding:16px;background:#16a34a;color:#fff;border:0;border-radius:12px;font-size:19px;font-weight:800;margin-top:14px}
+#result{margin-top:18px;padding:18px;background:#dcfce7;border-radius:12px;display:none;font-weight:800;font-size:20px;text-align:center}
+.wa{display:block;margin-top:16px;padding:14px;background:#25D366;color:#fff;text-align:center;border-radius:12px;text-decoration:none;font-weight:800}
+</style>
+</head>
+<body>
+<div class="header"><h1>🐄 পশুর হাট - লাইভ<br>গরুর বাজার</h1></div>
 
+<div class="cow-card">
+<img src="cow.jpg" alt="ফিতা দিয়ে মাপার নিয়ম - How to Measure with Tape">
+<div style="text-align:center;padding:12px;font-weight:600">ফিতা দিয়ে গরুর ওজন মাপুন</div>
+</div>
+
+<div class="ad">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="calc">
+<h2 id="mt">⚖️ ওজন ক্যালকুলেটর / Weight Calculator</h2>
+<label>🌐 ভাষা / Language</label>
+<select id="lang" onchange="changeLang()">
+<option value="bn">বাংলা</option>
+<option value="en">English</option>
+</select>
+<label id="lb1">📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন</label>
+<input type="number" id="L" placeholder="যেমন: 51">
+<label id="lb2">⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন</label>
+<input type="number" id="G" placeholder="যেমন: 62">
+<p id="f" style="text-align:center;color:#6b7280;font-size:13px">সূত্র: (L x G x G) ÷ 660 = জীবিত ওজন (কেজি)</p>
+<button onclick="calc()" id="btn">ওজন দেখুন / Calculate</button>
+<div id="result"></div>
+<div style="margin-top:18px">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<a id="wa" class="wa" href="https://wa.me/8801773688915">📲 WhatsApp এ রেজাল্ট পাঠান</a>
+</div>
+
+<div class="ad">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXX" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div style="max-width:560px;margin:16px auto;text-align:center;color:#6b7280;font-size:12px">
+<a href="privacy.html">Privacy Policy</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a>
+<p>© 2026 Pashu Eta</p>
+</div>
+
+<script>
+const T={bn:{lb1:"📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন",lb2:"⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন",f:"সূত্র: (L x G x G) ÷ 660 = জীবিত ওজন (কেজি)",b:"ওজন দেখুন / Calculate",w:"📲 WhatsApp এ রেজাল্ট পাঠান",mt:"⚖️ ওজন ক্যালকুলেটর / Weight Calculator",p1:"যেমন: 51",p2:"যেমন: 62"},en:{lb1:"📏 Length (L) - in inch",lb2:"⭕ Heart Girth (G) - in inch",f:"Formula: (L x G x G) ÷ 660 = Live Weight (Kg)",b:"Calculate Weight",w:"📲 Send Result on WhatsApp",mt:"⚖️ Weight Calculator / Weight Calculator",p1:"Ex: 51",p2:"Ex: 62"}};
+function changeLang(){let l=document.getElementById("lang").value;document.getElementById("lb1").innerText=T[l].lb1;document.getElementById("lb2").innerText=T[l].lb2;document.getElementById("f").innerText=T[l].f;document.getElementById("btn").innerText=T[l].b;document.getElementById("wa").innerText=T[l].w;document.getElementById("mt").innerText=T[l].mt;document.getElementById("L").placeholder=T[l].p1;document.getElementById("G").placeholder=T[l].p2;}
+function calc(){let L=parseFloat(document.getElementById("L").value),G=parseFloat(document.getElementById("G").value),r=document.getElementById("result");if(!L||!G){r.style.display="block";r.innerHTML="সঠিক মাপ দিন";return}let w=(G*G*L)/660,m=w*0.55;let msg=`গরুর ওজন: ${w.toFixed(1)} কেজি, মাংস: ${m.toFixed(1)} কেজি`;r.innerHTML=`✅ জীবিত: ${w.toFixed(1)} কেজি (${(w/40).toFixed(2)} মণ)<br>🥩 মাংস: ${m.toFixed(1)} কেজি`;r.style.display="block";document.getElementById("wa").href=`https://wa.me/8801773688915?text=${encodeURIComponent(msg)}`;setTimeout(()=>{r.scrollIntoView({behavior:"smooth",block:"center"})},100);document.activeElement.blur();}
+</script>
+</body>
+</html>
