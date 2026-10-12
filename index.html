@@ -80,18 +80,3 @@ body{font-family:'Hind Siliguri',Arial; background:#f1f1f1}
 
 </div>
 
-function calculate() {
-  let l = parseFloat(document.getElementById("length").value);
-  let g = parseFloat(document.getElementById("girth").value);
-  let r = document.getElementById("result");
-  if (!l || !g) {
-    r.innerHTML = "Please enter valid length and girth";
-    return;
-  }
-  let w = (g * g * l) / 300;
-  r.innerHTML = `✅ Live Weight: <b>${w.toFixed(2)} kg</b><br>Meat: ${(w*0.55).toFixed(2)} kg`;
-  r.scrollIntoView({behavior:"smooth", block:"center"});
-}
-</script>
-</body>
-</html>
