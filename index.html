@@ -80,27 +80,18 @@ body{font-family:'Hind Siliguri',Arial; background:#f1f1f1}
 
 </div>
 
-<script>
-function calculate(){
-let L = parseFloat(document.getElementById('len').value);
-let G = parseFloat(document.getElementById('girth').value);
-let lang = document.getElementById('lang').value;
-let r = document.getElementById('result');
-if(!L || !G){ r.innerHTML = lang=='bn'?'👆 দৈর্ঘ্য ও বুকের বেড় লিখুন...':'👆 Enter Length & Girth...'; return; }
-let live = (L*G*G)/660;
-let mon = live/40;
-let meat = live*0.55;
-let meatMon = meat/40;
-
-if(lang=='bn'){
-document.getElementById('lb1').innerText='📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন';
-document.getElementById('lb2').innerText='⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন';
-r.innerHTML = `✅ জীবিত ওজন: <b>${live.toFixed(1)} কেজি</b> (${mon.toFixed(2)} মণ)<br>🥩 মাংস হবে: <b>${meat.toFixed(1)} কেজি</b> (${meatMon.toFixed(2)} মণ)<br><small>১ মণ = ৪০ কেজি</small>`;
-}else{
-document.getElementById('lb1').innerText='📏 Length (L) - in inch';
-document.getElementById('lb2').innerText='⭕ Chest Girth (G) - in inch';
-r.innerHTML = `✅ Live Weight: <b>${live.toFixed(1)} KG</b> (${mon.toFixed(2)} Mon)<br>🥩 Meat: <b>${meat.toFixed(1)} KG</b> (${meatMon.toFixed(2)} Mon)<br><small>1 Mon = 40 KG</small>`;
+function calculate() {
+  let l = parseFloat(document.getElementById("length").value);
+  let g = parseFloat(document.getElementById("girth").value);
+  let r = document.getElementById("result");
+  if (!l || !g) {
+    r.innerHTML = "Please enter valid length and girth";
+    return;
+  }
+  let w = (g * g * l) / 300;
+  r.innerHTML = `✅ Live Weight: <b>${w.toFixed(2)} kg</b><br>Meat: ${(w*0.55).toFixed(2)} kg`;
+  r.scrollIntoView({behavior:"smooth", block:"center"});
 }
-r.scrollIntoView({behavior:"smooth", block:"center"});
+</script>
 </body>
 </html>
