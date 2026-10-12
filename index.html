@@ -3,21 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pashu Eta</title>
+<title>Pashu Eta - পশুর হাট লাইভ গরুর বাজার</title>
 <style>
 body{margin:0;background:#f1f5f9;font-family:system-ui}
-.header{max-width:500px;margin:auto;background:#fff;text-align:center;padding:20px}
-.header h1{color:#15803d;margin:0;font-size:28px}
-.cow{max-width:500px;margin:10px auto;background:#fff;border-radius:16px;overflow:hidden}
-.cow img{width:100%;display:block}
-.calc{max-width:500px;margin:10px auto;background:#fff;border-radius:16px;padding:18px}
+.top{max-width:520px;margin:auto;background:#fff;text-align:center;padding:18px}
+.top h1{color:#15803d;margin:0;font-size:28px}
+.card{max-width:520px;margin:12px auto;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px #0001}
+.card img{width:100%;display:block}
+.box{max-width:520px;margin:12px auto;background:#fff;border-radius:18px;padding:20px;box-shadow:0 6px 18px #0001}
 label{font-weight:700;display:block;margin:10px 0 6px}
-input,select{width:100%;padding:14px;border:1px solid #ccc;border-radius:10px;font-size:18px;box-sizing:border-box}
-button{width:100%;padding:14px;background:#16a34a;color:#fff;border:0;border-radius:10px;font-size:18px;font-weight:bold;margin-top:10px}
-#result{margin-top:14px;padding:14px;background:#dcfce7;border-radius:10px;display:none;font-weight:bold;text-align:center;font-size:18px}
+input,select{width:100%;padding:14px;border:1.5px solid #cbd5e1;border-radius:12px;font-size:18px;box-sizing:border-box}
+button{width:100%;padding:15px;background:#16a34a;color:#fff;border:0;border-radius:12px;font-size:19px;font-weight:800;margin-top:12px}
+#result{margin-top:16px;padding:16px;background:#dcfce7;border-radius:12px;display:none;font-weight:800;font-size:19px;text-align:center;line-height:1.6}
+.wa{display:block;margin-top:16px;padding:14px;background:#25D366;color:#fff;text-align:center;border-radius:12px;text-decoration:none;font-weight:800}
+.footer{max-width:520px;margin:14px auto;text-align:center;color:#94a3b8;font-size:12px}
 </style>
 </head>
 <body>
-<div class="header"><h1>🐄 পশুর হাট - লাইভ<br>গরুর বাজার</h1></div>
-<div class="cow">
-<img src="https://i.postimg.cc/8Pq2r0Jt/cow-final.jpg" alt="cow" onerror="this.src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoADwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDYooopiCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoopaAEooooAKKXBoII60AJRS0lABRRRQMKKKKBBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFTQ9MkZA/SoacrsvQ8elAx84AII6GmxnGeMikLkgg9M5+lCsACCM5oAe4JX7uDUanBBpxkyCMdaZQBIrjJ+Ukk5pcb2XI4NMVtrA+lOEmMcdM0AD/cT8apykmXGTVpmyqjHSoXiDNuzg1hXhKcbRLptJ6jpI0UjCluSMBuv1pIwouSqnjHrnmlxJkHzOR7ChEKybycnGOmKyVKXMnYrmVtx54NJRRXYYhRRRQByP9vah/wA9V/74FH9vah/z1X/vgVmUUhmn/b2of89V/wC+BR/b2of89V/74FZlFAGn/b2of89V/wC+BR/b2of89V/74FZlFAGn/b2of89V/wC+BR/b2of89V/74FZlFAGn/b2of89V/wC+BR/b2of89V/74FZlFAGn/b2of89V/wC+BR/b2of89V/74FZlFAGn/b2of89V/wC+BR/b2of89V/74FZlPEUjIXCMUHVgOBQBof29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQBp/29qH/PVf8AvgUf29qH/PVf++BWZRQAUUUUASQQS3DFYY2kYDJCjPFRkEHB61e0jUW0668wLuRhhx6j2roLnSLTVZIry3kCo5zJtH3v8DQByy28zQtMsTmJTguBwKiro9b1OG3tzptiqhQNrkdB7fWucoAKKKKACiiigAooooAfDE88qRRjLucAe9dWtjqEVzaJEQtpGirIm4YP97I71zemSJFqNvJIwVFcEk9q7T+1LD/n8h/76oA4vUrV7O8kikULzlQD27VFawNdXMcCEBpGwCelaHiO4iudS3wSLIoQDK9Kr6L/AMha1/66CgB8+lPFBJKk8UvlHEioTlaU6S/lOUuIXljTe0SnJA+vSrNxPaWqXyxytLLcPtKlcbRnJqz/AGlZKJfLnKxvCUSERYCHHc96AM1dJcxIWnhSSRN6RscEj69KtyabHc2unhJIYZJI8Ybq7Z9qLa+tEtkWadpIhHhreSPcc/7LdhUJvoPM0s7ji3A8zjpzn8aAKcljJFatO5UBZTEV75FJeWUtrP5R+c7Q2VB7itBrqzube5glmaINcmZG2Z3A9qj1DVG+3NLYTuqFFUnGCcCgCC201poFmlmjgR22IZM/MasppMaWN21xKqTwsFxk4X6/XtUlpqaNYRwyXJt5Y2J3GIOHBOfwNMF7BPFqEU9w4MxVkkZOW2+oFAEEGktOibbiETSLuSLOSR/Sqlrbm5ukgDBGc7QW6A1uWWpWUH2ZxMYkRNrwrFnc3qTWM5iQJNDMxm8wkrtwAM8HNADxp0xhlkJA8uURBe7N6CpZ9JeKOVhPFI8IzLGp5SrOoarC8tq9spwr+dICMZfjP8qffalHLHO0N6+JRgQ+SARnqCfSgCrLosscscImieaQjCA8gEZyfao5tMdUV4Jo7hWfy/3Z6N6c1afU4F1tLpdzQ+WEbjB+7g1CsllYyRS28r3EiyBvu7QF9PrQAyfSnhjkdZ4pWhI81EJylGuRpFqTpGiooVeFGB0FXL/UI5IpjFeswl6ReSBgZ6E1V1Ka1vLueYTMPkXyxt+8QAMe1ACQ6S8yLtuIfOdd6xZySP5UQ6SZIIZXuYYhMSED5ySDjFaNnqVlCbdlmMSLHteFYurY6k0x1tW03T2uZ2iVWdhhM7hu/SgCimkybZ2mmjhWBwjl89ar31m9lMEdlYMoZXXowPethpob+x1CWVzDHJcLhtucccZFZuq3MU7wx25LRwxiMMRgt70AUKKKKACiiigAooooAKKntLSa9m8q3Tc+M9ccVJb6bdXE8kEURMkX3wTjFAFSirVtp91dCUwxFhF9/nGKq0AFFFFABRRRQBoaNpx1K62FtsaDc5749q3LvW7fTZY7S0iV44zh8dvYe9ctHLJEd0TshIxlTimUAdJrWn295aHU7Jlxjc4Hf/69c3TxLIsZjDsEbqoPBplABRRRQAUUUUAFFFFABRRRQAU6OR4nV42KspyCO1NooAVmLMWY5JOSaSiigAoopV+8PrQAlFa80Mf28zhAIlJ3LjjcDjH48VG9pC0kjyOFDyuo+YDaAfTvQBmUVcFtEbbcpZnC7jgjjn09PepfsMUkiLGzbS2C+QQRjP4HigDOoq/9mt+W3EqIyxVXBIII7/jSPbQRoZjvKEIVUHkbge/4UAUaK02sIEY75MKXKglgMDA59+tVLiKKKGLbuMjruJzx1I/pQBXooooAKKKKACntLI8aRs5KJnapPAplFADxLIImiDkRsclc8E0yiigAooooAKKKKACiiigCa1uprSXzbdyj4xkU+G/uoJnlimZZJPvN61WooAsQX1zbiQQysok+/jvVeiigAooooAKK2/8AhFtR/wCmP/ff/wBaj/hFtR/6Y/8Aff8A9agDEorb/wCEW1H/AKY/99//AFqP+EW1H/pj/wB9/wD1qAMSitv/AIRbUf8Apj/33/8AWo/4RbUf+mP/AH3/APWoAxKK2/8AhFtR/wCmP/ff/wBaj/hFtR/6Y/8Aff8A9agDEorb/wCEW1H/AKY/99//AFqP+EW1H/pj/wB9/wD1qAMSitv/AIRbUf8Apj/33/8AWo/4RbUf+mP/AH3/APWoAxKAcHNbf/CLaj/0x/77/wDrUf8ACLaj/wBMf++//rUAZJuZmDAucM28+59acLuZd2H+8SxyAefWtT/hFtR/6Y/99/8A1qP+EW1H/pj/AN9//WoAyhczCPy9/wAuMdOcemaVrudiCZDkHOQMc+vvWp/wi2o/9Mf++/8A61H/AAi2o/8ATH/vv/61AGS1zKxOW6rtIAA4qWC7KE+YXI2hRjHQfUVo/wDCLaj/ANMf++//AK1H/CLaj/0x/wC+/wD61AGbJezNLI6naHbdjGcVA7s4UMchRgewrZ/4RbUf+mP/AH3/APWo/wCEW1H/AKY/99//AFqAMSitv/hFtR/6Y/8Aff8A9aj/AIRbUf8Apj/33/8AWoAxKK2/+EW1H/pj/wB9/wD1qP8AhFtR/wCmP/ff/wBagDEorb/4RbUf+mP/AH3/APWo/wCEW1H/AKY/99//AFqAMSitv/hFtR/6Y/8Aff8A9aj/AIRbUf8Apj/33/8AWoAxKK2/+EW1H/pj/wB9/wD1qP8AhFtR/wCmP/ff/wBagDEorb/4RbUf+mP/AH3/APWo/wCEW1H/AKY/99//AFqAMSitv/hFtR/6Y/8Aff8A9aj/AIRbUf8Apj/33/8AWoAxKK2/+EW1H/pj/wB9/wD1qP8AhFtR/wCmP/ff/wBagDEorb/4RbUf+mP/AH3/APWo/wCEW1H/AKY/99//AFqAMSitv/hFtR/6Y/8Aff8A9aj/AIRbUf8Apj/33/8AWoA7eiiigAooooAKKKKACiiigAooooAKKKKACiimyOI0Zz0UZNADqKrWV7FeqzRBhtODuFWaATuFFFFABRRRQAUUUUAFFFFABRUF3cpaQ+bJkrnHAp1vOtxCsqZ2t0zQK/QlooooGFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFJS1XvD+72Hdtbglc5oArSaooJZI28lesrcA/T1qxbXXnnAjYDbnJrO1Cy32zeQh3nbxnsPaq9pHfLYyhGeNg2VHc+tK2txnRUVyB1G9BINxICPetX7fNaJaIxMry4LFvemI2qKKp6nPLb2jPChZumf7vvQJuxZeWOM4eRVPoTikmmSGBpmOUUZOOa5yzitrqQi7mlEpBOTwPzqJrhoVmggkaS3YY+YdPep5jP2h0dtewXKgxyDJONpOD+VTPLHHje6rnpk4rE0S1hMf2t2KtGx78YxVu9SyvovOefCR5Xcp7076FKTtc0GljTG51GemT1pWdFxuYDPTJrlbRIbiUx3M5VVUhCTT72zlt4Ve4nDNwqKDnilzE+0dr2OleaKMgSSIpPTccU37Vb/APPeP/vsVQjso7+zt5bpnDhMZBxVC5g0uAkCSWRh2Uj+dFynJrU3vtVv/wA94/8AvsVKrBlDKQQehFcnaQRXN8kWGWNj0zyOK6mCJYIUiTO1RgZpp3CEnIQ3MCkhpowR1BYUn2q3/wCe8f8A32KxNbtLeA+aHbzZGJ2npVKIWoVftEU4z1ZTx/KlclzadjqPtMB+7LGx9Awqtb6lbXaOrHywOCHIGc1UGkWktt51vLJyMqc1S0mxivXlEpYbQMbTRdg5SvYm+xNbuxs9QiVT/t4NNa8vLOZC9ysynqA24VE1lENXFplvLzjOeemannttLt5zDJJOGHX0H6UidemhvRyxyjMbqw74OcU+qmn2kNrETAzMsnzZJzVqrNltqLRSZHqKWgZEbmAEgzRgjqCwpPtVv/z3j/77FZOoWmn28heZ5d7kttUioIYdKlVmMsqbRkhiKm5m5O9jd+1W/wDz3j/77FMmvYI4XkDq+0ZIVgTXN3iWahDaO7ZzuD9qvXelRQ2JnidwwUEgng0XYudvYvPPa6lZFWlEe7sxAIIrPS2uYBsg1GEJ6eZijTNMgu7Uyys4IYjg1QMStcstukksYPAxzik2S29GzU07UJkvGgupldefnJGAfrWt9qt/+e8f/fYrn7K3sribyZVmik7At1/SpnstPS8W1LT7ycZyMU02VGTSNr7Vb/8APeP/AL7FH2q3/wCe8f8A32KxWs9OS9+ys0wb+9kYpk8GlwzeX5kzHOCVIwKLj52dCkiSLujZWHqDmnVXsrWO0h8uIkqTuyTViqLQUUUUDCiiigAooooAKKKKACiiigBrKGBFYcN7crPJbzoPNGdhxjJ9K3qpOqm//wCA5/SgCklpHdokt3D5c38QBxmnrGTdNLeKiQwkeUc1auBiBWA53U97ZLq2eKTOG7jtQMs9aCMjBpEXYioDnaAKdQIxNSsLm61BdqqI9
+<div class="top">
+<h1>🐄 পশুর হাট - লাইভ<br>গরুর বাজার</h1>
+</div>
+<div class="card">
+<img src="cow.jpg" alt="ফিতা দিয়ে মাপার নিয়ম">
+<div style="text-align:center;padding:10px;font-weight:800">ফিতা দিয়ে মাপার নিয়ম - How to Measure with Tape</div>
+<div style="display:flex;gap:8px;justify-content:center;padding:0 12px 14px;flex-wrap:wrap">
+<span style="background:#dbeafe;padding:6px 12px;border-radius:20px;font-size:12px">Step 1: Measure Length</span>
+<span style="background:#dcfce7;padding:6px 12px;border-radius:20px;font-size:12px">Step 2: Measure Girth</span>
+</div>
+</div>
+<div class="box">
+<h2 id="mt" style="margin:0 0 14px">⚖️ ওজন ক্যালকুলেটর / Weight Calculator</h2>
+<label>🌐 ভাষা / Language</label>
+<select id="lang" onchange="changeLang()">
+<option value="bn">বাংলা</option>
+<option value="en">English</option>
+</select>
+<label id="lb1">📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন</label>
+<input type="number" id="L" placeholder="যেমন: 51">
+<label id="lb2">⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন</label>
+<input type="number" id="G" placeholder="যেমন: 62">
+<p id="f" style="text-align:center;color:#64748b;font-size:13px">সূত্র: (L x G x G) ÷ 660 = জীবিত ওজন (কেজি)</p>
+<button onclick="calc()" id="btn">ওজন দেখুন / Calculate</button>
+<div id="result"></div>
+<a id="wa" class="wa" href="https://wa.me/8801773688915">📲 WhatsApp এ রেজাল্ট পাঠান</a>
+</div>
+<div class="footer">
+<p>© 2026 Pashu Eta - প্রোমো ক্যালকুলেটর</p>
+</div>
+<script>
+const T={
+bn:{lb1:"📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন",lb2:"⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন",f:"সূত্র: (L x G x G) ÷ 660 = জীবিত ওজন (কেজি)",b:"ওজন দেখুন / Calculate",w:"📲 WhatsApp এ রেজাল্ট পাঠান",mt:"⚖️ ওজন ক্যালকুলেটর / Weight Calculator",p1:"যেমন: 51",p2:"যেমন: 62"},
+en:{lb1:"📏 Length (L) - in inch",lb2:"⭕ Heart Girth (G) - in inch",f:"Formula: (L x G x G) ÷ 660 = Live Weight (Kg)",b:"Calculate Weight",w:"📲 Send Result on WhatsApp",mt:"⚖️ Weight Calculator",p1:"Ex: 51",p2:"Ex: 62"}
+};
+function changeLang(){
+let l=document.getElementById("lang").value;
+document.getElementById("lb1").innerText=T[l].lb1;
+document.getElementById("lb2").innerText=T[l].lb2;
+document.getElementById("f").innerText=T[l].f;
+document.getElementById("btn").innerText=T[l].b;
+document.getElementById("wa").innerText=T[l].w;
+document.getElementById("mt").innerText=T[l].mt;
+document.getElementById("L").placeholder=T[l].p1;
+document.getElementById("G").placeholder=T[l].p2;
+}
+function calc(){
+let L=document.getElementById("L").value;
+let G=document.getElementById("G").value;
+let r=document.getElementById("result");
+if(!L||!G){r.style.display="block";r.innerHTML="সঠিক মাপ দিন / Enter size";return}
+let w=(G*G*L)/660;
+let m=w*0.55;
+r.innerHTML="✅ জীবিত: "+w.toFixed(1)+" কেজি ("+(w/40).toFixed(2)+" মণ)<br>🥩 মাংস: "+m.toFixed(1)+" কেজি";
+r.style.display="block";
+r.scrollIntoView({behavior:"smooth",block:"center"});
+}
+</script>
+</body>
+</html>
