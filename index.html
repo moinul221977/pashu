@@ -85,12 +85,19 @@ let l=document.getElementById("length").value
 let g=document.getElementById("girth").value
 let r=document.getElementById("result")
 if(!l||!g){
-r.innerHTML="Enter valid data"
+r.innerHTML="সঠিক মাপ দিন"
 return
 }
-let w=(g*g*l)/300
-r.innerHTML="Live: "+w.toFixed(2)+" kg<br>Meat: "+(w*0.55).toFixed(2)+" kg"
-r.scrollIntoView()
+let w=(g*g*l)/660
+let m=w*0.55
+let wm=(w/40).toFixed(2)
+let mm=(m/40).toFixed(2)
+r.innerHTML="✅ জীবিত ওজন: "+w.toFixed(1)+" কেজি<br>("+wm+" মণ)<br><br>🥩 মাংস হবে: "+m.toFixed(1)+" কেজি<br>("+mm+" মণ)"
+r.style.display="block"
+r.style.marginBottom="350px"
+setTimeout(()=>{
+r.scrollIntoView({behavior:"smooth",block:"start"})
+},150)
 }
 </script>
 </body>
