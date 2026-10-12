@@ -3,33 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pashu Eta</title>
+<title>Pashu Eta - পশুর হাট</title>
+<style>
+body{margin:0;background:#f1f5f9;font-family:sans-serif;padding-bottom:400px}
+.top{max-width:500px;margin:auto;background:#fff;text-align:center;padding:18px}
+.top h1{color:#15803d;margin:0;font-size:26px}
+.card{max-width:500px;margin:10px auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px #0001}
+.card img{width:100%;display:block}
+.box{max-width:500px;margin:10px auto;background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 12px #0001}
+input{width:100%;padding:14px;margin:6px 0;border:1.5px solid #cbd5e1;border-radius:10px;font-size:16px;box-sizing:border-box}
+button{width:100%;padding:14px;background:#16a34a;color:#fff;border:0;border-radius:10px;font-size:18px;font-weight:800;margin-top:10px}
+#result{margin-top:12px;padding:12px;background:#dcfce7;border-radius:10px;display:none;font-weight:bold;text-align:center}
+.promo{max-width:500px;margin:10px auto;background:#fffbe6;border:1.5px dashed #f59e0b;border-radius:12px;padding:14px;text-align:center}
+</style>
 </head>
-<body style="margin:0;background:#f1f5f9;font-family:sans-serif;padding-bottom:400px">
-<div style="max-width:500px;margin:auto;background:#fff;text-align:center;padding:20px">
-<h1 style="color:#15803d;margin:0">🐄 পশুর হাট - লাইভ গরুর বাজার</h1>
-</div>
-<div style="max-width:500px;margin:10px auto;background:#fff;border-radius:16px;padding:16px;text-align:center">
-<p><b>📏 ফিতা দিয়ে মাপার নিয়ম</b></p>
-<img src="cow.jpg" style="width:100%" onerror="this.style.display='none'">
-</div>
-<div style="max-width:500px;margin:10px auto;background:#fff;border-radius:16px;padding:18px">
-<h2>⚖️ ওজন ক্যালকুলেটর</h2>
-<input id="L" type="number" placeholder="দৈর্ঘ্য L - 51" style="width:100%;padding:14px;margin:6px 0">
-<input id="G" type="number" placeholder="বুকের বেড় G - 62" style="width:100%;padding:14px;margin:6px 0">
-<button onclick="calc()" style="width:100%;padding:14px;background:green;color:white;border:0;border-radius:10px">ওজন দেখুন</button>
-<div id="r" style="display:none;margin-top:10px;padding:10px;background:#dcfce7;text-align:center;font-weight:bold"></div>
-</div>
-<script>
-function calc(){
-var L=document.getElementById('L').value;
-var G=document.getElementById('G').value;
-var r=document.getElementById('r');
-if(!L||!G){r.style.display='block';r.innerHTML='মাপ দিন';return}
-var w=(G*G*L)/660;
-r.innerHTML='ওজন: '+w.toFixed(1)+' কেজি';
-r.style.display='block';
-}
-</script>
-</body>
-</html>
+<body>
+<div class="top"><h1>🐄 পশুর হাট - লাইভ গরুর বাজার</h1></div>
+
+<div class="card">
+<img src="https://i.imgur.com/8Km9tLL.png" alt="Cow Measurement" onerror="this.src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0lICUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALgB6AMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAIHAQj/xABEEAABAwIEBAMFBgQEBgMAAAABAAIDBBESITEFBkETIlFhMnGBkQYTMqGxwRQjQlJy0fAUYnKCovEVJDNicoKSorLh8ST/xAAaAQADAQEBAQAAAAAAAAAAAAAAAQIDBAUG/8QALxEAAgIBAwMDAgQEBw
