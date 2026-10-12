@@ -80,26 +80,3 @@ body{font-family:'Hind Siliguri',Arial; background:#f1f1f1}
 
 </div>
 
-<script>
-function calculate(){
-let l=document.getElementById("length").value
-let g=document.getElementById("girth").value
-let r=document.getElementById("result")
-if(!l||!g){
-r.innerHTML="সঠিক মাপ দিন"
-return
-}
-let w=(g*g*l)/660
-let m=w*0.55
-let wm=(w/40).toFixed(2)
-let mm=(m/40).toFixed(2)
-r.innerHTML="✅ ওজন: "+w.toFixed(1)+" কেজি ("+wm+" মণ)<br>🥩 মাংস: "+m.toFixed(1)+" কেজি ("+mm+" মণ)"
-r.style.display="block"
-r.style.marginBottom="350px"
-setTimeout(()=>{
-r.scrollIntoView({behavior:"smooth",block:"start"})
-},150)
-}
-</script>
-</body>
-</html>
