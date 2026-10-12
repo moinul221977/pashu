@@ -87,42 +87,37 @@ body{font-family:'Hind Siliguri',Arial; background:#f1f1f1}
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pashu Eta</title>
 <style>
-body{font-family:Arial;padding:15px;padding-bottom:400px}
-input,select{width:100%;padding:12px;margin:8px 0;font-size:18px}
-button{width:100%;padding:14px;background:#16a34a;color:#fff;border:0;font-size:18px;border-radius:8px}
-#result{margin-top:20px;padding:15px;background:#dcfce7;border-radius:8px;display:none;font-size:20px;font-weight:bold}
+body{font-family:system-ui;padding:15px;padding-bottom:350px;background:#f6f6f6}
+.card{background:#fff;padding:18px;border-radius:16px;box-shadow:0 2px 8px #0001}
+input,select{width:100%;padding:12px;margin:8px 0 14px 0;font-size:18px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
+button{width:100%;padding:14px;background:#16a34a;color:#fff;border:0;font-size:18px;border-radius:10px}
+#result{margin-top:16px;padding:15px;background:#dcfce7;border-radius:10px;display:none;font-size:20px;font-weight:bold}
 </style>
 </head>
 <body>
-<h2>⚖️ ওজন ক্যালকুলেটর / Weight Calculator</h2>
+<div class="card">
+<h2>⚖️ ওজন ক্যালকুলেটর</h2>
 <label>ভাষা / Language</label>
 <select><option>বাংলা</option></select>
-<label>📏 দৈর্ঘ্য (L) - ইঞ্চিতে লিখুন</label>
-<input id="length" type="number" placeholder="যেমন: 66">
-<label>⭕ বুকের বেড় (G) - ইঞ্চিতে লিখুন</label>
-<input id="girth" type="number" placeholder="যেমন: 70">
-<button onclick="calculate()">👉 দৈর্ঘ্য ও বুকের বেড় লিখুন...</button>
-<p>সূত্র: (L x G x G) ÷ 660 = জীবিত ওজন (কেজি)</p>
+<label>📏 দৈর্ঘ্য (L)</label>
+<input id="length" type="number" placeholder="যেমন: 51">
+<label>⭕ বুকের বেড় (G)</label>
+<input id="girth" type="number" placeholder="যেমন: 62">
+<p>সূত্র: (L×G×G)÷660=ওজন</p>
+<button onclick="calculate()">👉 ওজন দেখুন</button>
 <div id="result"></div>
-<button style="margin-top:15px">📲 WhatsApp এ রেজাল্ট পাঠান</button>
-<p style="text-align:center;margin-top:20px">About | Privacy | Contact<br>© 2026 Pashu Eta</p>
+</div>
 <script>
 function calculate(){
 let l=document.getElementById("length").value
 let g=document.getElementById("girth").value
 let r=document.getElementById("result")
-if(!l||!g){
-r.innerHTML="সঠিক মাপ দিন"
-r.style.display="block"
-return
-}
+if(!l||!g){r.innerHTML="সঠিক মাপ দিন";r.style.display="block";return}
 let w=(g*g*l)/660
 let m=w*0.55
-let wm=(w/40).toFixed(2)
-let mm=(m/40).toFixed(2)
-r.innerHTML="✅ জীবিত ওজন: "+w.toFixed(1)+" কেজি ("+wm+" মণ)<br><br>🥩 মাংস: "+m.toFixed(1)+" কেজি ("+mm+" মণ)"
+r.innerHTML="✅ জীবিত: "+w.toFixed(1)+" কেজি ("+(w/40).toFixed(2)+" মণ)<br>🥩 মাংস: "+m.toFixed(1)+" কেজি"
 r.style.display="block"
-r.scrollIntoView({behavior:"smooth",block:"start"})
+r.scrollIntoView({behavior:"smooth"})
 document.activeElement.blur()
 }
 </script>
