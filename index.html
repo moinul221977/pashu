@@ -1,1 +1,53 @@
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pashu Eta Final</title>
+<style>
+body{margin:0;background:#f2f7f2;font-family:Arial}
+.box{max-width:520px;margin:auto;background:#fff}
+.top-img{width:100%;display:block}
+.content{padding:14px}
+h2{text-align:center;color:#0a8a2a}
+input,select{width:100%;padding:13px;border:1px solid #ccc;border-radius:10px;box-sizing:border-box;margin-bottom:12px;font-size:16px}
+.btn{width:100%;padding:14px;background:#0a8a2a;color:#fff;border:none;border-radius:10px;font-weight:bold;font-size:18px}
+.result{background:#e8f5e9;padding:14px;border-radius:12px;margin-top:14px;display:none}
+.ad{background:#eee;border:1px dashed #999;padding:10px;text-align:center;margin:12px 0;border-radius:8px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="box">
+<img class="top-img" src="cow.jpg" alt="Cow Guide">
+<div class="content">
+<h2>গরুর ওজন ক্যালকুলেটর</h2>
+<div class="ad">AD TOP - AdSense কোড এখানে</div>
+<label>পশু নির্বাচন</label>
+<select id="animal"><option value="cow">গরু</option><option value="goat">ছাগল</option><option value="buffalo">মহিষ</option></select>
+<label>দৈর্ঘ্য (ইঞ্চি) - B</label><input id="len" type="number" placeholder="70">
+<label>বুকের বেড় (ইঞ্চি) - C</label><input id="gir" type="number" placeholder="75">
+<button class="btn" onclick="calc()">ওজন হিসাব করুন</button>
+<div class="result" id="resBox">
+<div id="liveW"></div>
+<div id="meatKg"></div>
+<div id="meatMon"></div>
+</div>
+<div class="ad">AD BOTTOM - AdSense কোড এখানে</div>
+</div>
+</div>
+<script>
+function calc(){
+ let L=parseFloat(document.getElementById('len').value);
+ let G=parseFloat(document.getElementById('gir').value);
+ if(!L||!G){alert('মান লিখুন');return;}
+ let live=(G*G*L)/660;
+ let meat=live*0.55;
+ let mon=meat/40;
+ document.getElementById('liveW').innerText='জীবিত ওজন: '+live.toFixed(2)+' kg';
+ document.getElementById('meatKg').innerText='মাংস: '+meat.toFixed(2)+' kg';
+ document.getElementById('meatMon').innerText='মন: '+mon.toFixed(2)+' মন';
+ document.getElementById('resBox').style.display='block';
+}
+</script>
+</body>
+</html>
